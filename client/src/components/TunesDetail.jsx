@@ -5,9 +5,12 @@ var TunesDetail = function (props) {
     return <h4>No album selected</h4>
   }
   return (
-   <h3>
-     {props.album.title.label}
-   </h3>
+    <div className='album-detail'>
+    <h3>
+      {props.album.title.label}
+    </h3>
+    <img src={props.album["im:image"][2] }/>
+    </div>
   );
 };
 
