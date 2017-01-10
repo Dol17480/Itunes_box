@@ -9,7 +9,7 @@ var TunesDetail = function (props) {
     <h3>
       {props.album.title.label}
     </h3>
-    <img src={props.album["im:image"][2] }/>
+    <img src={props.album["im:image"][2].label }/>
     </div>
   );
 };
