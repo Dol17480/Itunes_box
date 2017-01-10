@@ -5,9 +5,14 @@ var TunesSelector = React.createClass({
     return { selectedIndex: undefined };
   },
   render: function () {
-    var options = this.props.album.map(function (album, index) {
+    console.log (this.props)
+    var options = this.props.albums.map(function (album, index) {
 
-      return (<option value={index} key={index}>{album.title}</option>);
+      return (
+        <option 
+        value={index} 
+        key={index}>{album.title.label}
+        </option>)
     });
     return (
       <select 

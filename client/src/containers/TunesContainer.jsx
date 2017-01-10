@@ -15,7 +15,7 @@ componentDidMount: function () {
   request.onload = function (){
     var data = JSON.parse(request.responseText);
   this.setState({
-    albums: data, 
+    albums: data.feed.entry, 
     focusAlbum: data[0]
   });
   }.bind(this);
