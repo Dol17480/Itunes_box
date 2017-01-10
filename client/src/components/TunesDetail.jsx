@@ -6,7 +6,7 @@ var TunesDetail = function (props) {
   }
   return (
    <h3>
-     {props.album.title}
+     {props.album.title.label}
    </h3>
   );
 };
