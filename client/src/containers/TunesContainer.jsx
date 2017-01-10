@@ -4,8 +4,8 @@ var TunesDetail = require('../components/TunesDetail');
 
 var TunesContainer = React.createClass({
   getInitialState: function () {
-    return { songs: [],
-    focusSong: null 
+    return { albums: [],
+    focusAlbum: null 
   };
   },
 componentDidMount: function () {
@@ -15,8 +15,8 @@ componentDidMount: function () {
   request.onload = function (){
     var data = JSON.parse(request.responseText);
   this.setState({
-    songs: data, 
-    focusSong: data[0]
+    albums: data, 
+    focusAlbum: data[0]
   });
   }.bind(this);
   request.send(null);
@@ -25,7 +25,6 @@ componentDidMount: function () {
 
   handleClick: function(e){
     e.preventDefault();
-    console.log(e, "well done, you can click a button....")
   },
 
   render: function () {
@@ -33,18 +32,18 @@ componentDidMount: function () {
       <div>
         <h2>Top Alternative Albums</h2>
         <TunesSelector 
-        songs={this.state.songs}
-        selectSong={this.setFocusSong}
+        albums={this.state.albums}
+        selectAlbum={this.setFocusAlbum}
         />
         <TunesDetail 
-        song={this.state.focusSong}
+        album={this.state.focusAlbum}
         handleClick={this.handleClick}
         />
       </div>
     );
   },
-  setFocusSong: function (song) {
-    this.setState({focusSong: song})
+  setFocusAlbum: function (album) {
+    this.setState({focusAlbum: album})
   }
 });
 

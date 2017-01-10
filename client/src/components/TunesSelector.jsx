@@ -5,13 +5,13 @@ var TunesSelector = React.createClass({
     return { selectedIndex: undefined };
   },
   render: function () {
-    var options = this.props.songs.map(function (song, index) {
+    var options = this.props.album.map(function (album, index) {
 
-      return (<option value={index} key={index}>{song.name}</option>);
+      return (<option value={index} key={index}>{album.title}</option>);
     });
     return (
       <select 
-      id="songs" 
+      id="albums" 
       value={this.state.selectedIndex}
       onChange={this.handleChange}
       >
@@ -22,8 +22,8 @@ var TunesSelector = React.createClass({
   handleChange: function (event) {
     var newIndex = parseInt(event.target.value);
     this.setState({selectedIndex: newIndex});
-    var song = this.props.songs[newIndex];
-    this.props.selectSong(song);
+    var album = this.props.albums[newIndex];
+    this.props.selectAlbum(album);
   }
 });
 
